@@ -1,0 +1,18 @@
+# idea默认的代码补全是采用分割线方式，但是
+# 在配置eureka服务提供方时，serviceUrl写
+# 成service-url会导致找不到注册中心，所以
+# 统一约定配置文件的key全部采用驼峰命名的方式
+server:
+  port: 7002
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:7001/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+  instance:
+    hostname: peer2
+spring:
+  application:
+    name: eureka-server
+
