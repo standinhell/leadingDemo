@@ -104,6 +104,12 @@
 			<artifactId>spring-cloud-netflix-eureka-client</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>io.shardingsphere</groupId>
+			<artifactId>sharding-jdbc-core</artifactId>
+			<version>3.0.0.M4</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
