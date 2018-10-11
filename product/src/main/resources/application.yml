@@ -1,10 +1,10 @@
 spring:
   datasource:
-    username: zsq
-    password: 123456
-    driverClassName: com.mysql.jdbc.Driver
+    username: sa
+    password: XS12345^
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://111.230.153.94:3306/leading1
+    url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=zsq_test
 
     initialSize: 10
     minIdle: 2
@@ -24,3 +24,9 @@ eureka:
 tm:
   manager:
     url: http://127.0.0.1:7000/tx/manager/
+
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+

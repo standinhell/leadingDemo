@@ -1,0 +1,25 @@
+#spring:
+#  datasource:
+#    username: zsq
+#    password: 123456
+#    driverClassName: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://111.230.153.94:3306/leading1
+#
+#    initialSize: 2
+#    minIdle: 2
+#    maxActive: 20
+#    maxWait: 60000
+#    filters: stat
+#  application:
+#    name: server-orders
+#mybatis:
+#  configuration:
+#    mapUnderscoreToCamelCase: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:7001/eureka/
+#tm:
+#  manager:
+#    url: http://127.0.0.1:7000/tx/manager/

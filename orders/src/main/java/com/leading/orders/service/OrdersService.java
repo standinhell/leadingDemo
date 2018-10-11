@@ -21,10 +21,14 @@ public class OrdersService {
     @Transactional
     public Integer createOrders(Orders orders){
 
-        int r1 = productClient.updateProduct(orders.getProductId(),orders.getNums());
-
-        int r2 = ordersMapper.insertOrders(orders);
-
+        int r1 = 0;
+        int r2 = 0;
+        try {
+            r1 = productClient.updateProduct(orders.getProductId(),orders.getNums());
+            r2 = ordersMapper.insertOrders(orders);
+        } catch (Exception e) {
+            throw e;
+        }
 
 
         return r1+r2;
