@@ -58,6 +58,23 @@
 			<version>1.1.10</version>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>io.shardingjdbc</groupId>-->
+			<!--<artifactId>sharding-jdbc-core</artifactId>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>io.shardingsphere</groupId>
+			<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			<version>3.0.0.M4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.shardingsphere</groupId>
+			<artifactId>sharding-jdbc-spring-namespace</artifactId>
+			<version>3.0.0.M4</version>
+		</dependency>
+
 		<!--引入LCN框架-->
 		<dependency>
 			<groupId>com.codingapi</groupId>
@@ -81,6 +98,13 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.2</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

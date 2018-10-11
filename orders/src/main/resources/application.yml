@@ -1,16 +1,16 @@
 spring:
-  datasource:
-    username: sa
-    password: XS12345^
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=zsq_test
-
-    initialSize: 2
-    minIdle: 2
-    maxActive: 20
-    maxWait: 60000
-    filters: stat
+#  datasource:
+#    username: sa
+#    password: XS12345^
+#    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=zsq_test
+#
+#    initialSize: 2
+#    minIdle: 2
+#    maxActive: 20
+#    maxWait: 60000
+#    filters: stat
   application:
     name: server-orders
 mybatis:
@@ -23,3 +23,42 @@ eureka:
 tm:
   manager:
     url: http://127.0.0.1:7000/tx/manager/
+
+sharding:
+  jdbc:
+    datasource:
+      names: dsmaster,dsslave0,dsslave1,dsslave2
+      type: com.alibaba.druid.pool.DruidDataSource
+      dbmaster:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.10:1433;DatabaseName=ZSQ_TEST
+      dsslave0:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.146:1433;DatabaseName=ZSQ_TEST
+      dsslave1:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.136:1433;DatabaseName=ZSQ_TEST
+      dsslave2:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=ZSQ_TEST
+    config:
+      masterslave:
+        loadBalanceAlgorithmType: round_robin
+        name: dataSource
+        master-data-source-name: dbmaster
+        slave-data-source-names: dsslave0,dsslave1,dsslave2
+        props:
+          sql:
+            show: true
