@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class DruidConfig {
 
     @Autowired

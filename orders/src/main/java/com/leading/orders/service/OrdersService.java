@@ -17,7 +17,7 @@ public class OrdersService {
     @Autowired
     private ProductClient productClient;
 
-    @TxTransaction
+    @TxTransaction(isStart = true)
     @Transactional
     public Integer createOrders(Orders orders){
 
@@ -26,6 +26,7 @@ public class OrdersService {
         try {
             r1 = productClient.updateProduct(orders.getProductId(),orders.getNums());
             r2 = ordersMapper.insertOrders(orders);
+            int i = 1/0;
         } catch (Exception e) {
             throw e;
         }

@@ -26,39 +26,36 @@ tm:
 
 sharding:
   jdbc:
-    datasource:
-      names: dsmaster,dsslave0,dsslave1,dsslave2
-      type: com.alibaba.druid.pool.DruidDataSource
+    data-sources:
       dbmaster:
         username: sa
         password: XS12345^
         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:sqlserver://192.168.0.10:1433;DatabaseName=ZSQ_TEST
+        url: jdbc:sqlserver://192.168.0.10:1433;DatabaseName=testDemo
       dsslave0:
         username: sa
         password: XS12345^
         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:sqlserver://192.168.0.146:1433;DatabaseName=ZSQ_TEST
+        url: jdbc:sqlserver://192.168.0.146:1433;DatabaseName=testDemo
       dsslave1:
         username: sa
         password: XS12345^
         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:sqlserver://192.168.0.136:1433;DatabaseName=ZSQ_TEST
+        url: jdbc:sqlserver://192.168.0.136:1433;DatabaseName=testDemo
       dsslave2:
         username: sa
         password: XS12345^
         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=ZSQ_TEST
-    config:
-      masterslave:
-        loadBalanceAlgorithmType: round_robin
-        name: dataSource
-        master-data-source-name: dbmaster
-        slave-data-source-names: dsslave0,dsslave1,dsslave2
-        props:
-          sql:
-            show: true
+        url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=testDemo
+    master-slave-rule:
+      loadBalanceAlgorithmType: round_robin
+      name: dataSource
+      master-data-source-name: dbmaster
+      slave-data-source-names: dsslave0,dsslave1,dsslave2
+      props:
+        sql:
+          show: true
