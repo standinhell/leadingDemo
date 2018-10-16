@@ -1,4 +1,4 @@
-package com.leading.product.service;
+package com.leading.orders.service;
 
 import com.codingapi.tx.config.service.TxManagerTxUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
