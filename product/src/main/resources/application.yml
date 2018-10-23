@@ -1,16 +1,16 @@
 spring:
-  datasource:
-    username: sa
-    password: XS12345^
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=testDemo
-
-    initialSize: 10
-    minIdle: 2
-    maxActive: 20
-    maxWait: 60000
-    filters: stat
+#  datasource:
+#    username: sa
+#    password: XS12345^
+#    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=testDemo
+#
+#    initialSize: 10
+#    minIdle: 2
+#    maxActive: 20
+#    maxWait: 60000
+#    filters: stat
   application:
     name: server-product
 mybatis:
@@ -26,4 +26,39 @@ tm:
     url: http://127.0.0.1:7000/tx/manager/
     serviceId: TX-MANAGER
 
+sharding:
+  jdbc:
+    data-sources:
+      dbmaster:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.10:1433;DatabaseName=testDemo
+      dsslave0:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.146:1433;DatabaseName=testDemo
+      dsslave1:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.136:1433;DatabaseName=testDemo
+      dsslave2:
+        username: sa
+        password: XS12345^
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:sqlserver://192.168.0.138:1433;DatabaseName=testDemo
+    master-slave-rule:
+      loadBalanceAlgorithmType: round_robin
+      name: dataSource
+      master-data-source-name: dbmaster
+      slave-data-source-names: dsslave0,dsslave1,dsslave2
+      props:
+        sql:
+          show: true
 

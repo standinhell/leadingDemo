@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 @EnableConfigurationProperties(ShardingMastSlaveConfig.class)
 @ConditionalOnProperty({"sharding.jdbc.data-sources.dbmaster.url", "sharding.jdbc.master-slave-rule.master-data-source-name"})
 public class ShardingDataSourceConfig {

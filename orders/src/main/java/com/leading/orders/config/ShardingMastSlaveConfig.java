@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.HashMap;
 import java.util.Map;
 
-@ConfigurationProperties(prefix = "sharding.jdbc")
+//@ConfigurationProperties(prefix = "sharding.jdbc")
 public class ShardingMastSlaveConfig {
     private Map<String, DruidDataSource> dataSources = new HashMap<>();
 
